@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movierecommendation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie
+  template:
+    metadata:
+      labels:
+        app: movie
+    spec:
+      containers:
+      - name: mveimdb
+        image: sparshai/mveimdb
+        ports:
+        - containerPort: 8501
